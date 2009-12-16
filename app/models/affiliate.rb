@@ -1,0 +1,2 @@
+class Affiliate < User
+end

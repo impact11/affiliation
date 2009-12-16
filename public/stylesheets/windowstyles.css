@@ -1,0 +1,136 @@
+body, TD
+
+
+{
+
+
+	font-family: Verdana;
+
+
+	font-size: 12px;
+
+
+}
+
+
+
+
+
+.Bar
+
+
+{
+
+
+	background-color: #cccccc;
+
+
+	padding: 5px;
+
+
+	margin-bottom: 10px;
+
+
+}
+
+
+
+
+
+.BodyContainer
+
+
+{
+
+
+	width: 100%;
+
+
+}
+
+
+
+
+
+.Heading
+
+
+{
+
+
+	font-size: 16;
+
+
+	font-weight: bold;
+
+
+	font-family: Arial;
+
+
+}
+
+
+
+
+
+.Summary
+
+
+{
+
+
+	font-style: italic;
+
+
+}
+
+
+
+
+
+.Heading2
+
+
+{
+
+
+	font-weight: bold;
+
+
+}
+
+
+
+
+
+.Small
+
+
+{
+
+
+	font-family: Verdana;
+
+
+	font-size: 10px;
+
+
+}
+
+
+
+
+
+.Text
+
+
+{
+
+
+	font-family: Verdana;
+
+
+	font-size: 12px;
+
+
+}

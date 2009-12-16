@@ -1,0 +1,63 @@
+
+#headerMenu li li a {
+	width: 107px;
+}
+
+#headerMenu li li a.menu_mnuArticles
+{
+	width: 127px;
+}
+
+#headerMenu li li a.menu_mnuCategories
+{
+	width: 127px;
+}
+
+#headerMenu li li a.menu_mnuGroups
+{
+	width: 107px;
+}
+
+#headerMenu li li a.menu_mnuUsers
+{
+	width: 97px;
+}
+
+
+table.outerpanel {
+	width: 95%;
+}
+
+span.CategoryIcon,
+span.SelectedCategoryIcon
+{
+	padding: 2px;
+	margin: 2px;
+	font: normal 21px/21px Arial;
+}
+
+.DropDownMenu li a {
+	height: 1%;
+}
+
+
+.SortablePanel .Heading3 td {
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+.DropDownMenu .Break {
+	text-align: center;
+}
+
+.DropDownMenu hr {
+	margin: 0 auto;
+}
+
+.Header {
+	z-index: 1;
+}
+
+ul#ProductVariationBox li {
+	display: inline;
+}

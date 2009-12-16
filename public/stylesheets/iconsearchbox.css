@@ -1,0 +1,61 @@
+.IconSearchBox {
+	height:200px;
+	border:solid 1px #7F9DB9;
+	background-color:#FFF;
+	overflow:auto;
+	cursor:default;
+	margin-top:-1px;
+	width:402px;
+	position:absolute;
+	display:none;
+	z-index: 10000;
+}
+
+.IconSearchBox ul, .ResultSearchBox ul {
+	padding:0px;
+	margin:0px;
+	list-style: none;
+}
+
+.IconSearchBox li, .ResultSearchBox li {
+	list-style:none;
+	padding:5px 5px 5px 10px;
+}
+
+.IconSearchBox .History, .ResultSearchBox .History {
+	float:right;
+	padding-right:3px;
+}
+
+.IconSearchBox .History a, .ResultSearchBox .History a {
+	color:gray;
+}
+
+.IconSearchBox img, .ResultSearchBox img {
+	float:left;
+	padding-right:10px;
+}
+
+.IconSearchBox .Details, .ResultSearchBox .Details {
+	padding-left:25px;
+	color:gray;
+}
+
+.IconSearchBox .NoResults {
+	color:gray;
+}
+
+.IconSearchBox .SearchBoxRecordSelected {
+	cursor:pointer;
+	background-color:#F0F0F0;
+}
+
+.ResultSearchBox {
+	background-color:#FFF;
+	cursor:default;
+}
+
+.ResultSearchBox:hover {
+	cursor:default;
+	background-color:#FFF;
+}
