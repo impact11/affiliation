@@ -2,4 +2,4 @@ Setup
 =====
 
 # Generate the authentication key
-rake secret
+rake auth:gen:site_key
