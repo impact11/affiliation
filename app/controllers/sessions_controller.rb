@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
 
+	def index
+		redirect_to :action => "new"
+	end
+
   # render new.rhtml
   def new
   end

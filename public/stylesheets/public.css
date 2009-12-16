@@ -1,0 +1,53 @@
+body{
+font-family:verdana, arial, sans-serif;
+font-size:0.8em;
+background:#eee;
+}
+h1{
+font-size:1.5em;
+margin:0.5em 0;
+font-weight:bold;
+}
+h2{
+font-size:1.2em;
+margin:0.5em 0;
+font-weight:bold;
+}
+p{
+margin:0.5em 0;
+}
+
+#page{
+width:950px;
+margin:0 auto;
+background:#fff;
+}
+
+#header{
+height:100px;
+background:#ccc;
+}
+#content{
+padding:2em;
+}
+#footer{
+}
+#left_column{
+width:20%;
+float:left;
+min-height:600px;
+}
+#right_column{
+width:70%;
+float:left;
+}
+
+#errorMessage{
+text-align:center;
+color:red;
+}
+#errorExplanation{
+}
+#errorExplanation h2{
+color:red;
+}

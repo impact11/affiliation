@@ -1,17 +1,45 @@
-<h1>Sign up as a new user</h1>
-<% @user.password = @user.password_confirmation = nil %>
+<div id="left_column">
+	<h2>Login</h2>
 
-<%= error_messages_for :user %>
-<% form_for :users, :url => users_path do |f| %>
-<p><%= label_tag 'login' %><br/>
-<%= f.text_field :login %></p>
+	<% form_tag sessions_path do %>
+		<p><%= label_tag 'Username:' %><br />
+		<%= text_field_tag 'login', @login %></p>
 
-<p><%= label_tag 'email' %><br/>
-<%= f.text_field :email %></p>
+		<p><%= label_tag 'password:' %><br/>
+		<%= password_field_tag 'password', nil %></p>
 
-<p><%= label_tag 'password' %><br/>
-<%= f.password_field :password %></p>
+		<p><%= label_tag 'remember_me', 'Remember me' %>
+		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
 
+		<p><%= submit_tag 'Log in' %></p>
+	<% end %>
+</div>
+
+<div class="right_column">
+	<h1>Join the Affiliate Program</h1> 
+	<p>Become a member of the most innovative and successful affiliate program on the Web. Drive your traffic to our website and get paid for it!</p> 
+
+	<h1>How does it work?</h1> 
+	<p>After registration you as a member of affiliate program get the access to code snippet area. Then you copy and paste that code snippet to your website and that's it! No technical knowledge needed!</p> 
+	<p>Once a visitors clicked on the link (text ad or banner) on your website they are tracked by our tracking system and you get paid for every sale or click made by visitors came from your website.</p> 
+
+	<h1>Stay informed</h1> 
+	<p>Login anytime from anywhere! Get real-time statistics of traffic and commissions!</p>
+
+	<h1>Register now!</h1>
+	<% @user.password = @user.password_confirmation = nil %>
+
+	<%= error_messages_for :user %>
+	<% form_for :users, :url => users_path do |f| %>
+	<p><%= label_tag 'login' %><br/>
+	<%= f.text_field :login %></p>
+
+	<p><%= label_tag 'email' %><br/>
+	<%= f.text_field :email %></p>
+
+	<p><%= label_tag 'password' %><br/>
+	<%= f.password_field :password %></p>
+<div>
 <p><%= label_tag 'password_confirmation', 'Confirm Password' %><br/>
 <%= f.password_field :password_confirmation %></p>
 

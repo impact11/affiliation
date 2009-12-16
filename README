@@ -1,0 +1,5 @@
+Setup
+=====
+
+# Generate the authentication key
+rake secret

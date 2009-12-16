@@ -6,34 +6,25 @@
 	<meta name="robots" content="noindex, nofollow" />
 	<title>Affiliation</title>
 	<%= stylesheet_link_tag "reset.css" %>
-	<%= stylesheet_link_tag "main.css" %>
+	<%= stylesheet_link_tag "public.css" %>
 </head>
 <body>
-<div class="mainMenu"> 
-	<ul> 
-		<!-- Begin Left Menu --> 
-				
-				
-		<!-- End Left Menu --> 
-		
-		<!-- Begin Right Menu --> 
-				
-				
-				
-		<!-- End Right Menu --> 
-	</ul> 
-</div>
+<div id="page">
+	<div id="header">
 
-<div id="bodyContainer">
-	<% if flash[:error] %>
-		<div id="errorMessage">
-			<%= flash[:error] %>
-		</div>
-	<% end %>
-	<%= @content_for_layout %>
-</div>
+	</div>
 
-<div id="footer">
+	<div id="content">
+		<% if flash[:error] %>
+			<div id="errorMessage">
+				<%= flash[:error] %>
+			</div>
+		<% end %>
+		<%= @content_for_layout %>
+	</div>
+
+	<div id="footer">
+	</div>
 </div>
 
 </body>
