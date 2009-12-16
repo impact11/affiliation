@@ -14,8 +14,8 @@ class CreateUsers < ActiveRecord::Migration
       t.column :activation_code,           :string, :limit => 40
       t.column :activated_at,              :datetime
 
-			add_index :users :login, :unique => true
   	end
+		add_index :users, :login, :unique => true
   end
 
   def self.down

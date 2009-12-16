@@ -1,0 +1,322 @@
+body {
+ background-color: #F0F0F0;
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-size: .9em;
+ color: #4F5155;
+ margin:0 0;
+ padding:0 0;
+}
+
+a {
+ color: #444;
+ background-color: transparent;
+ font-weight: bold;
+}
+
+.mainMenu{
+ width: 100%;
+ overflow: hidden;
+ background-color: #24336A;
+ height: 77px;
+ margin:0 0 10px 0;
+}
+
+.mainMenu ul{
+ margin: 0;
+ padding: 0;
+ padding-left: 50px; /*offset of tabs relative to browser left edge*/
+ padding-right: 30px; /*offset of tabs relative to browser left edge*/
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-weight:100;
+ font-size:.7em;
+ list-style-type: none;
+}
+
+.mainMenu li{
+ display: inline;
+ margin: 0;
+}
+
+.mainMenu li a.mainMenuLeft{
+ border-right: 2px solid #04396C; /*right divider between tabs*/
+ float: left;
+}
+
+.mainMenu li a.mainMenuRight{
+ border-left: 2px solid #04396C; /*left divider between tabs*/
+ float: right;
+}
+
+.mainMenu li a{
+ display: block;
+ text-decoration: none;
+ margin: 50px 0 0 0;
+ padding:10px 10px 7px 10px;  /*padding inside each tab*/
+ color: #CDD5F4;
+ background: #2F428C; /*background of tabs (default state)*/
+}
+
+.mainMenu li a:visited {
+ color: #CDD5F4;
+}
+
+.mainMenu li a:hover, .mainMenu li.selected a{
+ background: #F0F0F0; /*background of tabs for hover state, plus tab with "selected" class assigned to its LI */
+ color: #000;
+}
+
+.subMenu{
+ width: 100%;
+ overflow: hidden;
+ background-color: #F0F0F0;
+ height: 26px;
+}
+
+.subMenu ul{
+ margin: 0;
+ padding: 0;
+ padding-left: 40px; /*offset of tabs relative to browser left edge*/
+ padding-right: 40px; /*offset of tabs relative to browser left edge*/
+ font-family: Lucida Grande, Verdana, Sans-serif;
+ font-weight:100;
+ font-size:.7em;
+ list-style-type: none;
+}
+
+.subMenu li{
+ display: inline;
+ margin: 0;
+}
+
+.subMenu li a.subMenuLeft{
+ border-right: 2px solid #F0F0F0; /*right divider between tabs*/
+ float: left;
+}
+
+.subMenu li a.subMenuRight{
+ border-left: 2px solid #F0F0F0; /*left divider between tabs*/
+ float: right;
+}
+
+.subMenu li a{
+ display: block;
+ text-decoration: none;
+ margin: 0 0 0 0;
+ padding:10px 10px 7px 10px;  /*padding inside each tab*/
+ color: #2F428C;
+ background: #E4EAFA; /*background of tabs (default state)*/
+}
+
+.subMenu li a:visited{
+ color: #2F428C;
+}
+
+.subMenu li a:hover, .subMenu li.selected a{
+ background: #CDD5F4; /*background of tabs for hover state, plus tab with "selected" class assigned to its LI */
+ color: #000;
+}
+
+#bodyContainer {
+ margin:0 30px;
+ background-color:#fff;
+}
+
+#errorMessage{
+color:red;
+text-align:center;
+padding:1em;
+background:#eee;
+}
+
+.containerHeader {
+ background-color: #CDD5F4;
+}
+
+.containerHeader h1 {
+ color: #000;
+ background-color: transparent;
+ font-size: .9em;
+ font-weight: bold;
+ padding: 10px;
+}
+
+.containerContent {
+ color: #444;
+ font-size: .75em;
+ padding:0 15px 15px 15px;
+}
+
+.containerContent p{
+ color: #444;
+ padding: 5px 0;
+}
+
+#footer{
+ margin:5px 30px;
+ background-color:transparent;
+ padding:3px 10px;
+ font-size: .7em;
+}
+
+p.error {
+ font-size:1.3em;
+ color:red; 
+}
+
+p.success {
+ font-size:1.3em;
+ color:blue; 
+}
+
+
+/*Receive PO styles*/
+
+#barcode_input {
+ margin: 20px auto;
+ width:600px;
+}
+
+
+.upc_input {
+ margin:auto;
+ height:80px;
+ width:600px;
+ font-size:70px;
+ font-weight:normal;
+ background-color:yellow;
+}
+
+#po_input_list .odd{
+ background-color:#F0F0F0;
+}
+
+#po_input_list td{
+ padding:4px 5px;
+}
+
+#po_input_list th{
+ padding:2px 5px;
+ font-size:12px;
+ font-weight:normal;
+ background-color:#CDD5F4;
+}
+
+#po_input_list {
+ width:100%;
+ height:200px;
+ overflow:auto;
+ border:2px solid #CDD5F4;
+}
+
+#po_input_list table{
+ width:100%
+}
+
+#po_input_list td.title{
+ font-size:12px;
+ white-space:nowrap;
+ padding-left:10px;
+}
+
+#po_input_list td.prod_id{
+ white-space:nowrap;
+ font-size:12px;
+ padding:0 10px 0 10px;
+}
+
+#po_input_list td.options{
+ white-space:nowrap;
+}
+
+#po_input_list td.qty{
+ white-space:nowrap;
+ font-size:14px;
+ padding:0 10px 0 10px;
+}
+
+/*End Receive PO styles*/
+
+
+/* Start Stocking Style */
+
+#warelouse_location_list .odd{
+ background-color:#F0F0F0;
+}
+
+#warelouse_location_list td{
+ padding:4px 5px;
+}
+
+#warelouse_location_list th{
+ padding:2px 5px;
+ font-size:12px;
+ font-weight:normal;
+ background-color:#CDD5F4;
+}
+
+#warelouse_location_list {
+ width:100%;
+ height:200px;
+ overflow:auto;
+ border:2px solid #CDD5F4;
+}
+
+#warelouse_location_list table{
+ width:100%
+}
+
+#warelouse_location_list td.title{
+ font-size:12px;
+ white-space:nowrap;
+ padding-left:10px;
+}
+
+#warelouse_location_list td.prod_id{
+ white-space:nowrap;
+ font-size:12px;
+ padding:0 10px 0 10px;
+}
+
+#warelouse_location_list td.options{
+ white-space:nowrap;
+}
+
+#warelouse_location_list td.qty{
+ white-space:nowrap;
+ font-size:14px;
+ padding:0 10px 0 10px;
+}
+
+.stocking_product_title {
+ font-size:14px;
+ font-weight:700;
+ margin:5px 0 5px 20px;
+}
+
+/* End Stocking Style */
+
+/* Time Clock Style */
+
+.clock {
+ font-size:16px;
+ font-weight:700;
+}
+
+#stocking_barcode_input {
+ margin:auto;
+ height:80px;
+ width:600px;
+ font-size:70px;
+ font-weight:normal;
+ background-color:yellow;
+}
+
+/* End Time Clock Style */
+
+
+
+
+
+
+
+

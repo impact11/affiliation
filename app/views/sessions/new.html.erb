@@ -1,14 +1,19 @@
-<h1>Log In</h1>
+<div class="containerHeader">
+	<h1>Please Login</h1>
+</div>
+<div class="containerContent">
 
-<% form_tag users_path do -%>
-<p><%= label_tag 'login' %><br />
-<%= text_field_tag 'login', @login %></p>
+	<% form_tag sessions_path do %>
+		<p><%= label_tag 'Username:' %><br />
+		<%= text_field_tag 'login', @login %></p>
 
-<p><%= label_tag 'password' %><br/>
-<%= password_field_tag 'password', nil %></p>
+		<p><%= label_tag 'password:' %><br/>
+		<%= password_field_tag 'password', nil %></p>
 
-<p><%= label_tag 'remember_me', 'Remember me' %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
+		<p><%= label_tag 'remember_me', 'Remember me' %>
+		<%= check_box_tag 'remember_me', '1', @remember_me %></p>
 
-<p><%= submit_tag 'Log in' %></p>
-<% end -%>
+		<p><%= submit_tag 'Log in' %></p>
+	<% end %>
+
+</div>
