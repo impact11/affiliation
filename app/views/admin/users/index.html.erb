@@ -1,0 +1,26 @@
+<h2>Showing Users</h2>
+<p class="actions"><%= link_to "New User", new_user_path %></p>
+
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Role(s)</th>
+		<th>Activated</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+			<td><%= user.id %></td>
+			<td><%= user.login %></td>
+			<td><%= user.email %></td>
+			<td><%= user.roles.collect{|r| r.title }.join(" ") %></td>
+			<td><%= user.activated_at ? "Yes" : "No" %></td>
+			<td>
+				<%= link_to 'Show', admin_user_path(user) %>
+				<%= link_to 'Edit', edit_admin_user_path(user) %>
+			</td>
+	</tr>
+	<% end %>
+</table>

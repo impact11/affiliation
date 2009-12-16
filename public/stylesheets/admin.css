@@ -1,7 +1,7 @@
 body {
  background-color: #F0F0F0;
  font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: .9em;
+ font-size: 0.8em;
  color: #4F5155;
  margin:0 0;
  padding:0 0;
@@ -11,6 +11,16 @@ a {
  color: #444;
  background-color: transparent;
  font-weight: bold;
+}
+h1,h2{
+font-weight:bold;
+margin:0.5em 0;
+}
+h2{
+font-size:1.2em;
+}
+p{
+margin:1em 0;
 }
 
 .mainMenu{
@@ -107,7 +117,7 @@ a {
  background: #E4EAFA; /*background of tabs (default state)*/
 }
 
-.subMenu li a:visited{
+.subMenu li a:visited {
  color: #2F428C;
 }
 
@@ -118,6 +128,7 @@ a {
 
 #bodyContainer {
  margin:0 30px;
+ padding:1em;
  background-color:#fff;
 }
 
@@ -167,156 +178,26 @@ p.success {
  font-size:1.3em;
  color:blue; 
 }
-
-
-/*Receive PO styles*/
-
-#barcode_input {
- margin: 20px auto;
- width:600px;
+table{
+width:100%;
+border-collapse:collapse;
+border-right:1px solid #ddd;
+}
+table tr.alt{
+background:#eee;
+}
+table th{
+padding:0.25em;
+background:#eee;
+font-weight:bold;
+border-top:1px solid #f3f3f3;
+border-left:1px solid #f3f3f3;
+border-right:1px solid #ddd;
+border-bottom:1px solid #ddd;
 }
 
-
-.upc_input {
- margin:auto;
- height:80px;
- width:600px;
- font-size:70px;
- font-weight:normal;
- background-color:yellow;
+table td{
+padding:0.25em;
+border-left:1px solid #f3f3f3;
+border-bottom:1px solid #ddd;
 }
-
-#po_input_list .odd{
- background-color:#F0F0F0;
-}
-
-#po_input_list td{
- padding:4px 5px;
-}
-
-#po_input_list th{
- padding:2px 5px;
- font-size:12px;
- font-weight:normal;
- background-color:#CDD5F4;
-}
-
-#po_input_list {
- width:100%;
- height:200px;
- overflow:auto;
- border:2px solid #CDD5F4;
-}
-
-#po_input_list table{
- width:100%
-}
-
-#po_input_list td.title{
- font-size:12px;
- white-space:nowrap;
- padding-left:10px;
-}
-
-#po_input_list td.prod_id{
- white-space:nowrap;
- font-size:12px;
- padding:0 10px 0 10px;
-}
-
-#po_input_list td.options{
- white-space:nowrap;
-}
-
-#po_input_list td.qty{
- white-space:nowrap;
- font-size:14px;
- padding:0 10px 0 10px;
-}
-
-/*End Receive PO styles*/
-
-
-/* Start Stocking Style */
-
-#warelouse_location_list .odd{
- background-color:#F0F0F0;
-}
-
-#warelouse_location_list td{
- padding:4px 5px;
-}
-
-#warelouse_location_list th{
- padding:2px 5px;
- font-size:12px;
- font-weight:normal;
- background-color:#CDD5F4;
-}
-
-#warelouse_location_list {
- width:100%;
- height:200px;
- overflow:auto;
- border:2px solid #CDD5F4;
-}
-
-#warelouse_location_list table{
- width:100%
-}
-
-#warelouse_location_list td.title{
- font-size:12px;
- white-space:nowrap;
- padding-left:10px;
-}
-
-#warelouse_location_list td.prod_id{
- white-space:nowrap;
- font-size:12px;
- padding:0 10px 0 10px;
-}
-
-#warelouse_location_list td.options{
- white-space:nowrap;
-}
-
-#warelouse_location_list td.qty{
- white-space:nowrap;
- font-size:14px;
- padding:0 10px 0 10px;
-}
-
-.stocking_product_title {
- font-size:14px;
- font-weight:700;
- margin:5px 0 5px 20px;
-}
-
-/* End Stocking Style */
-
-/* Time Clock Style */
-
-.clock {
- font-size:16px;
- font-weight:700;
-}
-
-#stocking_barcode_input {
- margin:auto;
- height:80px;
- width:600px;
- font-size:70px;
- font-weight:normal;
- background-color:yellow;
-}
-
-/* End Time Clock Style */
-
-
-
-
-
-
-
-

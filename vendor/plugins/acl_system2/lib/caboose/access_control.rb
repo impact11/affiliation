@@ -1,4 +1,3 @@
-
 module Caboose
 
   module AccessControl
@@ -28,10 +27,10 @@ module Caboose
           if @access.allowed?(c.action_name)
              c.send(:permission_granted)  if c.respond_to?:permission_granted
           else    
-            if c.respond_to?:permission_denied
+            if c.respond_to?(:permission_denied)
               c.send(:permission_denied)
             else  
-              c.send(:render, :text => "You have insuffient permissions to access #{c.controller_name}/#{c.action_name}")
+              c.send(:render, :text => "You have insufficient permissions to access #{c.controller_name}/#{c.action_name}")
             end
           end
         end

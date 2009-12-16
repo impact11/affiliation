@@ -5,3 +5,13 @@ admin:
   crypted_password: c08bf26178158accc7eba461b1a292d40090dc09 #testpass
   salt: 342fe3ebecea3384d2819ab49c4e0c78908f0083 
   activated_at: <%= DateTime.now %>
+
+# Affiliates
+affiliate1:
+  id: 100
+  type: Affiliate
+  login: affiliate
+  email: example@example.com
+  crypted_password: c08bf26178158accc7eba461b1a292d40090dc09 #testpass
+  salt: 342fe3ebecea3384d2819ab49c4e0c78908f0083 
+  activated_at: <%= DateTime.now %>
