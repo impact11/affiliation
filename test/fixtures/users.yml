@@ -4,5 +4,5 @@ admin:
   password: testpass
   email: example@example.com
 	salt: 12345
-  crypted_password: <%= User.encrypt('testpass') %> 
+  crypted_password: 
   activated_at: <%= DateTime.now %>
