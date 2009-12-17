@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.find(:all, :conditions => ["type IS NULL"])
+    @users = User.find(:all, :conditions => ["type IS NULL"]) # Only retrieve non-affiliates
 
     respond_to do |format|
       format.html # index.html.erb
