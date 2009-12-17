@@ -3,3 +3,7 @@ Setup
 
 # Generate the authentication key
 rake auth:gen:site_key
+
+# Create the Friendly tables
+# From ./script/console
+Friendly.create_tables!

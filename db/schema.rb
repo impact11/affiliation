@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091215204644) do
+ActiveRecord::Schema.define(:version => 20091216223536) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -23,13 +23,30 @@ ActiveRecord::Schema.define(:version => 20091215204644) do
     t.datetime "updated_at"
   end
 
+  create_table "bdrb_job_queues", :force => true do |t|
+    t.text     "args"
+    t.string   "worker_name"
+    t.string   "worker_method"
+    t.string   "job_key"
+    t.integer  "taken"
+    t.integer  "finished"
+    t.integer  "timeout"
+    t.integer  "priority"
+    t.datetime "submitted_at"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "archived_at"
+    t.string   "tag"
+    t.string   "submitter_info"
+    t.string   "runner_info"
+    t.string   "worker_key"
+    t.datetime "scheduled_at"
+  end
+
   create_table "payable_actions", :force => true do |t|
     t.integer  "user_id"
-    t.string   "action"
-    t.integer  "origin_id"
-    t.integer  "order_id"
-    t.integer  "order_total"
-    t.integer  "trackback_code_id"
+    t.integer  "trackback_id"
+    t.float    "payout"
     t.boolean  "is_approved"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,14 +61,6 @@ ActiveRecord::Schema.define(:version => 20091215204644) do
   create_table "roles_users", :force => true do |t|
     t.integer  "role_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trackback_codes", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "code"
-    t.float    "percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
