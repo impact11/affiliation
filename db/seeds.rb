@@ -5,3 +5,5 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+TrackbackCode.create( :user_id => 100, :code => "affcode1", :percentage => 10.0 )

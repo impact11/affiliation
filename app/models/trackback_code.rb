@@ -5,7 +5,8 @@ class TrackbackCode
 	attribute :code, String
 	attribute :percentage, Float
 
-	indexes :user_id, :code
+	indexes :user_id
+	indexes :code
 
 	def trackbacks
 		Trackback.all( :trackback_code_id => self.id )

@@ -35,4 +35,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+	def self.load_friendly_tables
+		Friendly.create_tables!
+	end
+
+	load_friendly_tables
 end
