@@ -53,10 +53,13 @@ ActionController::Routing::Routes.draw do |map|
 	map.signup '/signup', :controller => 'users', :action => 'new'
 	map.login '/login', :controller => 'sessions', :action => 'new'
 	map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-
 	map.denied '/denied', :controller => 'sessions', :action => 'denied'
 
 	map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+
+	map.track 'track/:code/:order_number/:order_amount', :controller => "track", :action => "index", :order_number => /(.*)/, :order_amount => /(.*)/
+	map.track '/track/:code', :controller => "track", :action => "index", :code => /(.*)/
+
 	map.base '/', :controller => 'users', :action => 'new'
 
   map.connect ':controller/:action/:id'

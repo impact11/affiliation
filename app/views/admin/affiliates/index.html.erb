@@ -1,0 +1,23 @@
+<h2>Showing Affiliates</h2>
+<p class="actions"><%= link_to "New Affiliate", new_admin_affiliate_path %></p>
+
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Username</th>
+		<th>Email</th>
+		<th>Activated</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% @affiliates.each do |affiliate| %>
+	<tr>
+			<td><%= affiliate.id %></td>
+			<td><%= affiliate.login %></td>
+			<td><%= affiliate.email %></td>
+			<td><%= affiliate.activated_at ? "Yes" : "No" %></td>
+			<td>
+				<%= link_to 'Show/Edit', edit_admin_affiliate_path(affiliate) %>
+			</td>
+	</tr>
+	<% end %>
+</table>

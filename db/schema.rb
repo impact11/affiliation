@@ -44,10 +44,15 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
   end
 
   create_table "payable_actions", :force => true do |t|
+    t.string   "type"
     t.integer  "user_id"
-    t.integer  "trackback_id"
+    t.string   "trackback_code_name"
+    t.string   "trackback_id"
+    t.string   "order_number"
+    t.float    "order_amount"
     t.float    "payout"
-    t.boolean  "is_approved"
+    t.boolean  "approved_at"
+    t.integer  "approved_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

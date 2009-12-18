@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 	has_one :address
 	has_and_belongs_to_many :roles
 
+	has_many :payable_actions
+
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login

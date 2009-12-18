@@ -1,8 +1,8 @@
 Your account has been created.
 
-  Username: <%%=h @<%= file_name %>.login %>
-  Password: <%%=h @<%= file_name %>.password %>
+  Username: <%=h @user.login %>
+  Password: <%=h @user.password %>
 
 Visit this url to activate your account:
 
-  <%%=h @url %>
+  <%=h @url %>

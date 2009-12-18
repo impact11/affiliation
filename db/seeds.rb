@@ -6,4 +6,21 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-TrackbackCode.create( :user_id => 100, :code => "affcode1", :percentage => 10.0 )
+
+# Create Friendly tables
+Trackback
+TrackbackCode
+PageView
+
+Friendly.create_tables!
+
+# Users
+admin = User.new( :login => "admin", :password => "testpass", :password_confirmation => "testpass", :email => "administrator@example.com" )
+admin.save
+
+# Affiliates
+affiliate = Affiliate.new( :login => "affiliate1", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com" )
+affiliate.save
+
+# Affiliate codes
+TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)

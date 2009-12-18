@@ -2,13 +2,17 @@ class TrackbackCode
 	include Friendly::Document
 
 	attribute :user_id, Integer	
-	attribute :code, String
+	attribute :name, String
 	attribute :percentage, Float
 
 	indexes :user_id
-	indexes :code
+	indexes :name
+
+	def user
+		User.find(self.user_id)
+	end
 
 	def trackbacks
-		Trackback.all( :trackback_code_id => self.id )
+		Trackback.all( :trackback_code_name => self.name )
 	end
 end
