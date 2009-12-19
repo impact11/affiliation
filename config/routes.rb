@@ -44,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :affiliates
 		admin.resources :payable_actions
 		admin.resources :roles
-		admin.resources :statistics
+		admin.resources :trackback_codes
 	end
 
 	map.resources :users
@@ -58,6 +58,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
 
 	map.track 'track/:code/:order_number/:order_amount', :controller => "track", :action => "index", :order_number => /(.*)/, :order_amount => /(.*)/
+	map.track '/track/:code/:extra', :controller => "track", :action => "index", :code => /(.*)/, :extra => /(.*)/
 	map.track '/track/:code', :controller => "track", :action => "index", :code => /(.*)/
 
 	map.base '/', :controller => 'users', :action => 'new'

@@ -7,6 +7,7 @@ class TrackbackCode
 
 	indexes :user_id
 	indexes :name
+	indexes :percentage
 
 	def user
 		User.find(self.user_id)

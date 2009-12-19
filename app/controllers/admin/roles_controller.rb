@@ -1,7 +1,7 @@
 class Admin::RolesController < ApplicationController
 	layout "admin"
 	before_filter :login_required
-	access_control [ :index, :new, :update, :edit ] => '(root)'
+	access_control [ :index, :new, :update, :edit ] => '(admin)'
 
 	def index
 	end

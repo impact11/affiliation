@@ -1,1 +1,58 @@
-<h1>Dashboard</h1>
+<div id="dashboard">
+	<h1>Dashboard</h1>
+	<p><strong>Date:</strong> <%= @traffic_stats.end_date.strftime("%b	%d, %Y") %>
+
+	<div id="dashboardLeft">
+		
+		<div id="dashboardActions">
+			<p><strong>Affiliates pending approval:</strong> <%= link_to @affiliates_pending, admin_affiliates_path %></p>
+			<p><strong>Payouts pending approval:</strong> <%= link_to @payouts_pending, admin_payable_actions_path %></p>
+		</div>
+
+		<div id="searchTerms">
+			<h2>Top Searches</h2>
+			<ul>
+				<% @search_stats.terms.each_with_index do |term, count| %>
+					<li><%= count +1 %>. <strong><%= term[0] %></strong> (<%= term[1] %>)</li>
+					<% break if count == 10 %>
+			 	<% end %>
+			</ul>
+		</div>
+	</div>
+
+	<div id="dashboardStats">
+	<h2>Stats:</h2>
+		<%= 
+			Gchart.line(
+				:title => "Traffic last 30 days",
+				:legend => ["Page Views", "Trackbacks", "Conversions"],
+				:data => @traffic_stats.data_sets,
+				:axis_with_labels => 'x,y',
+				:axis_labels => [ @traffic_stats.days, @traffic_stats.range ],
+				:size => "750x300",
+				:line_colors => "FF3366,3366FF,66FF33",
+				:format => 'image_tag',
+				:custom => 
+					'chg=10,25,3,3,10,20' + # Grid lines
+					'&chls=2,5,2|2,1,0|4,1,0' + # Line formatting
+					'&chm=r,000000,0,1,2|r,E5ECF9,0,2,3' # Range lines
+			)
+		%>
+		<%= 
+			Gchart.bar(
+				:title => "Total",
+				:data => [[@search_stats.page_views.size],[@traffic_stats.trackbacks.size], [@traffic_stats.orders.size]],
+				:axis_with_labels => 'y',
+				:axis_labels => "#{@traffic_stats.min}|#{@traffic_stats.max}",
+				#:axis_labels => "#{@search_stats.page_views.size}	#{@traffic_stats.trackbacks.size}	#{@traffic_stats.orders.size}"],
+				:size => "100x300",
+				:bar_colors => ["FF3366","3366FF","66FF33"],
+				:format => 'image_tag',
+				:stacked => false,
+				:id => "trafficBar"
+			)
+		%>
+		<div style="clear:both"></div>
+	</div>
+	<div style="clear:both"></div>
+</div>

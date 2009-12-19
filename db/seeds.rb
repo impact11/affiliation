@@ -14,13 +14,18 @@ PageView
 
 Friendly.create_tables!
 
+# Roles
+#admin_role = Role.create( :title => "admin" )
+
 # Users
-admin = User.new( :login => "admin", :password => "testpass", :password_confirmation => "testpass", :email => "administrator@example.com" )
+admin = User.new( :login => "admin", :password => "testpass", :password_confirmation => "testpass", :email => "administrator@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
+admin.roles << Role.first( :conditions => ["title = ?", "admin"]) 
 admin.save
 
 # Affiliates
-affiliate = Affiliate.new( :login => "affiliate1", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com" )
-affiliate.save
+Affiliate.create( :login => "approved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
+Affiliate.create( :login => "unapproved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate2@example.com" )
+Affiliate.create( :login => "unactivated_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate3@example.com", :approved_at => DateTime.now )
 
 # Affiliate codes
-TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)
+#TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)

@@ -7,17 +7,57 @@
 		<th>Username</th>
 		<th>Email</th>
 		<th>Activated</th>
+		<th>Approved</th>
 		<th>&nbsp;</th>
 	</tr>
 	<% @affiliates.each do |affiliate| %>
-	<tr>
+	<% tr_class = cycle('','alt') %>
+
+	<tr class="<%= tr_class %>">
 			<td><%= affiliate.id %></td>
-			<td><%= affiliate.login %></td>
+			<td><strong><%= affiliate.login %></strong></td>
 			<td><%= affiliate.email %></td>
-			<td><%= affiliate.activated_at ? "Yes" : "No" %></td>
-			<td>
-				<%= link_to 'Show/Edit', edit_admin_affiliate_path(affiliate) %>
+			<td style="text-align:center">
+				<% if affiliate.active? 	%> 
+					<%= image_tag("icons/tick.png") %>
+				<% else %>
+					<%= image_tag("icons/cross.png") %> <%= link_to("(remind)", "/admin/affiliates/#{ affiliate.id }/remind") %>
+				<% end %>
 			</td>
+			<td style="text-align:center">
+				<% if affiliate.approved? %> 
+					<%= image_tag("icons/tick.png") %> <%= link_to("(revoke)", "/admin/affiliates/revoke/#{ affiliate.id }") %> 
+				<% else %>
+					<%= image_tag("icons/cross.png") %> <%= link_to("(approve)", "/admin/affiliates/approve/#{ affiliate.id }") %>
+				<% end %>
+			</td>
+			<td>
+				<%= link_to 'Edit', edit_admin_affiliate_path(affiliate) %>
+			</td>
+	</tr>
+	<tr class="<%= tr_class %>">
+		<td colspan="6" style="padding:0 0.25em;border-top:0;border-bottom:0">
+			<div id="<%= affiliate.id %>-codes" class="affiliateCodes" style="">
+			<% affiliate.trackback_codes.each do |code| %>
+				<div class="affiliateCode">
+					<p><span class="codeName"><%= code.name %></span> (<%= code.percentage %>% of order)
+						<%= link_to("Edit", edit_admin_trackback_code_path(code)) %>
+						<%= link_to("Delete", admin_trackback_code_path(code), :confirm => "Are you certain?\nThis cannot be undone", :method => :delete) %>
+					</p>
+				</div>
+			<% end %>
+			<p><strong><%= link_to "Add Code", "#", :onclick => "javascript: document.getElementById('#{affiliate.id}-add-code').style.display = ''"%></strong>
+				<span id="<%= affiliate.id %>-add-code" style="display:none">
+				<% form_tag new_admin_trackback_code_path do %>
+					<%= label_tag 'Name:' %> <%= text_field_tag 'name', nil, :class => 'text' %>
+					<%= label_tag '%:' %> <%= text_field_tag 'name', nil, :class => 'text' %>
+					<%= hidden_field_tag 'user_id', :value => affiliate.id %>
+					<%= submit_tag 'Add' %>
+				<% end %>
+				</span>
+			</p>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 </table>

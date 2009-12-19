@@ -1,7 +1,7 @@
 body {
  background-color: #F0F0F0;
  font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 0.8em;
+ font-size:0.8em;
  color: #4F5155;
  margin:0 0;
  padding:0 0;
@@ -14,13 +14,28 @@ a {
 }
 h1,h2{
 font-weight:bold;
-margin:0.5em 0;
+margin-bottom:1em;
+}
+h1{
+font-size:1.5em;
 }
 h2{
 font-size:1.2em;
 }
 p{
-margin:1em 0;
+margin:0.5em 0;
+}
+strong{
+font-weight:bold;
+}
+pre{
+padding:1em;
+background:#eee;
+border:1px dashed #ccc;
+font-family:monospace;
+}
+label{
+font-weight:bold;
 }
 
 .mainMenu{
@@ -38,7 +53,6 @@ margin:1em 0;
  padding-right: 30px; /*offset of tabs relative to browser left edge*/
  font-family: Lucida Grande, Verdana, Sans-serif;
  font-weight:100;
- font-size:.7em;
  list-style-type: none;
 }
 
@@ -89,7 +103,6 @@ margin:1em 0;
  padding-right: 40px; /*offset of tabs relative to browser left edge*/
  font-family: Lucida Grande, Verdana, Sans-serif;
  font-weight:100;
- font-size:.7em;
  list-style-type: none;
 }
 
@@ -130,6 +143,7 @@ margin:1em 0;
  margin:0 30px;
  padding:1em;
  background-color:#fff;
+ min-width:800px;
 }
 
 #errorMessage{
@@ -200,4 +214,47 @@ table td{
 padding:0.25em;
 border-left:1px solid #f3f3f3;
 border-bottom:1px solid #ddd;
+}
+
+#dashboardLeft{
+float:left;
+width:200px;
+padding:10px;
+margin-bottom:2em;
+border:1px solid #ccc;
+}
+#dashboardLeft h2{
+margin-top:2em;
+
+}
+#dashboardActions{
+}
+#searchTerms{
+}
+#dashboardStats{
+float:left;
+width:850px;
+padding:10px;
+margin-left:20px;
+border:1px solid #ccc;
+}
+#dashboardStats img{
+float:left;
+}
+#trafficBar{
+}
+
+.affiliateCodes{
+padding:1em;
+padding-bottom:2em;
+}
+.affiliateCode{
+}
+.codeName{
+color:green;
+font-weight:bold;
+}
+
+.affiliateCodes input.text{
+width:50px;
 }

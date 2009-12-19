@@ -1,7 +1,7 @@
 class Admin::AffiliatesController < ApplicationController
 	layout "admin"
 	before_filter :login_required
-	access_control [ :index, :new, :update, :edit ] => '(root)'
+	access_control [ :index, :new, :update, :edit ] => '(admin)'
 
   # GET /users
   # GET /users.xml
@@ -82,8 +82,21 @@ class Admin::AffiliatesController < ApplicationController
     @affiliate.destroy
 
     respond_to do |format|
-      format.html { redirect_to(users_url) }
+      format.html { redirect_to(admin_affiliates_url) }
       format.xml  { head :ok }
     end
 	end 
+
+	def remind
+	end
+
+	def approve
+		@affiliate = Affiliate.find(params[:id])
+		@affiliate.approve!
+
+    respond_to do |format|
+      format.html { redirect_to(admin_affiliates_url) }
+      format.xml  { head :ok }
+    end
+	end
 end

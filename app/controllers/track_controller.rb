@@ -12,8 +12,8 @@ class TrackController < ApplicationController
 
 			@trackback = Trackback.first( :session_id => session[:session_id])
 
-			# If trackback exists
-			if @trackback
+			# If trackback exists and matches code
+			if @trackback && @trackback.trackback_code_name == params[:code]
 				if params[:order_number] && params[:order_amount]
 					create_page_view
 					create_payable_action(Order)
@@ -48,12 +48,13 @@ class TrackController < ApplicationController
 			:session_id => session[:session_id],
 			:trackback_code_name => @trackback_code.name,
 			:host => get_host,
-			:action => "NEW" 
+			:default => Trackback::DEFAULT 
 		)
 	end
 
 	def create_page_view 
-		PageView.create( :host => get_host, :viewed => get_viewed, :trackback_id => @trackback.session_id )
+		extra = params[:extra] ? params[:extra] : ""
+		PageView.create( :default => PageView::DEFAULT, :host => get_host, :viewed => get_viewed, :trackback_id => @trackback.session_id, :extra => extra )
 	end
 
 	def create_payable_action(type = Order)
@@ -91,7 +92,11 @@ class TrackController < ApplicationController
 	end
 
 	def get_viewed
-		request.referrer.split(request.protocol).last.gsub(get_host, "")
+		unless get_host.nil?
+			request.referrer.split(request.protocol).last.gsub(get_host, "")
+		else
+			request.referrer
+		end
 	end
 
 end
