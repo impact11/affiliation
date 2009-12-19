@@ -13,6 +13,10 @@ class TrackbackCode
 		User.find(self.user_id)
 	end
 
+	def affiliate
+		self.user
+	end
+
 	def trackbacks
 		Trackback.all( :trackback_code_name => self.name )
 	end

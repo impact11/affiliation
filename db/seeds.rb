@@ -15,7 +15,7 @@ PageView
 Friendly.create_tables!
 
 # Roles
-#admin_role = Role.create( :title => "admin" )
+admin_role = Role.create( :title => "admin" )
 
 # Users
 admin = User.new( :login => "admin", :password => "testpass", :password_confirmation => "testpass", :email => "administrator@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )

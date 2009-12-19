@@ -4,22 +4,24 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="robots" content="noindex, nofollow" />
-	<title>Affiliation</title>
+	<title>Affiliation::Administration</title>
+	<%= stylesheet_link_tag "reset.css" %>
 	<%= stylesheet_link_tag "admin.css" %>
 </head>
 <body>
 <div class="mainMenu"> 
+	<h1>Affililation - Administration</h1>
+	<p id="userStatus"><%= @current_user.login %> | <%= link_to "logout", "/logout" %></p>
 	<ul> 
 		<li><%= link_to "Dashboard", "/admin", :class => "mainMenuLeft" %></li>
 		<li><%= link_to "Users", admin_users_path, :class => "mainMenuRight" %></li>
-		<li><%= link_to "Roles", admin_roles_path, :class => "mainMenuRight" %></li>
 	</ul> 
 </div>
 
 <div class="subMenu">
 	<ul>
 		<li><%= link_to "Affiliates", admin_affiliates_path, :class => "subMenuLeft" %></li>
-		<li><%= link_to "Payouts", admin_payable_actions_path, :class => "subMenuLeft" %></li>
+		<li><%= link_to "Commissions", admin_payable_actions_path, :class => "subMenuLeft" %></li>
 	</ul>
 </div>
 

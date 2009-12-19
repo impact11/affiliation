@@ -3,9 +3,11 @@ class Admin::AffiliatesController < ApplicationController
 	before_filter :login_required
 	access_control [ :index, :new, :update, :edit ] => '(admin)'
 
-  # GET /users
-  # GET /users.xml
+  # GET /affiliates
+  # GET /affiliates.xml
   def index
+		store_location
+
     @affiliates = Affiliate.find(:all)
 
     respond_to do |format|
@@ -14,19 +16,14 @@ class Admin::AffiliatesController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
+  # GET /affiliates/1
+  # GET /affiliates/1.xml
   def show
-    @affiliate = Affiliate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @affiliate }
-    end
+		redirect_to edit_admin_affiliate_path(params[:id])
   end
 
-  # GET /users/new
-  # GET /users/new.xml
+  # GET /affiliates/new
+  # GET /affiliates/new.xml
   def new
     @affiliate = Affiliate.new
 
@@ -36,20 +33,31 @@ class Admin::AffiliatesController < ApplicationController
     end
   end
 
-  # GET /users/1/edit
+  # GET /affiliates/1/edit
   def edit
+		store_location
+
     @affiliate = Affiliate.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.xml
+  # POST /affiliates
+  # POST /affiliates.xml
   def create
-    @affiliate = Affiliate.new(params[:user])
+    @affiliate = Affiliate.new(params[:affiliate])
+
+		unless params[:send_activation]
+			@affiliate.bypass_activation = true
+		end
 
     respond_to do |format|
       if @affiliate.save
+
+				if params[:approved]
+					@affiliate.approve!
+				end
+
         flash[:notice] = 'Affiliate was successfully created.'
-        format.html { redirect_to(@affiliate) }
+        format.html { redirect_to([:admin, @affiliate]) }
         format.xml  { render :xml => @affiliate, :status => :created, :location => @affiliate }
       else
         format.html { render :action => "new" }
@@ -58,15 +66,15 @@ class Admin::AffiliatesController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
+  # PUT /affiliates/1
+  # PUT /affiliates/1.xml
   def update
     @affiliate = Affiliate.find(params[:id])
 
     respond_to do |format|
-      if @affiliate.update_attributes(params[:user])
+      if @affiliate.update_attributes(params[:affiliate])
         flash[:notice] = 'Affiliate was successfully updated.'
-        format.html { redirect_to(@affiliate) }
+        format.html { redirect_to([:admin, @affiliate]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -75,8 +83,9 @@ class Admin::AffiliatesController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
+  # DELETE /affiliates/1
+  # DELETE /affiliates/1.xml
+=begin
   def destroy
     @affiliate = Affiliate.find(params[:id])
     @affiliate.destroy
@@ -86,8 +95,12 @@ class Admin::AffiliatesController < ApplicationController
       format.xml  { head :ok }
     end
 	end 
+=end
 
 	def remind
+		@affiliate = Affiliate.find(params[:id])
+    UserMailer.deliver_signup_notification(@affiliate) 
+    redirect_back_or_default([:admin, @affiliate])
 	end
 
 	def approve

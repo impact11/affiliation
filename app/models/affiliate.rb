@@ -9,6 +9,6 @@ class Affiliate < User
 
 	def approve!
 		self.approved_at = DateTime.now
-		self.save
+		self.save(false)
 	end
 end

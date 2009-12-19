@@ -85,6 +85,13 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
 
   add_index "index_trackback_codes_on_name", ["id"], :name => "id", :unique => true
 
+  create_table "index_trackback_codes_on_percentage", :id => false, :force => true do |t|
+    t.binary "id",         :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
+    t.float  "percentage",               :default => 0.0,                                                                :null => false
+  end
+
+  add_index "index_trackback_codes_on_percentage", ["id"], :name => "id", :unique => true
+
   create_table "index_trackback_codes_on_user_id", :id => false, :force => true do |t|
     t.binary  "id",      :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
     t.integer "user_id",               :default => 0,                                                                  :null => false
@@ -136,14 +143,17 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
 
   create_table "payable_actions", :force => true do |t|
     t.string   "type"
+    t.string   "state"
     t.integer  "user_id"
     t.string   "trackback_code_name"
     t.string   "trackback_id"
     t.string   "order_number"
     t.float    "order_amount"
     t.float    "payout"
-    t.boolean  "approved_at"
+    t.datetime "approved_at"
     t.integer  "approved_by"
+    t.datetime "paid_at"
+    t.datetime "paid_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

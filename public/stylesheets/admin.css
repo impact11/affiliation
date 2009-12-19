@@ -12,15 +12,21 @@ a {
  background-color: transparent;
  font-weight: bold;
 }
-h1,h2{
+h1,h2,h3{
 font-weight:bold;
 margin-bottom:1em;
 }
 h1{
-font-size:1.5em;
+font-size:1.75em;
 }
 h2{
 font-size:1.2em;
+}
+h3{
+width:350px;
+font-size:1.1em;
+padding:0.5em 0;
+border-bottom:1px dashed #ccc;
 }
 p{
 margin:0.5em 0;
@@ -37,6 +43,27 @@ font-family:monospace;
 label{
 font-weight:bold;
 }
+.input{
+padding-bottom:1em;
+}
+.input label{
+display:block;
+}
+.input label.inline{
+display:inline;
+}
+input.text{
+border:1px solid #ccc;
+padding:0.25em;
+width:350px;
+}
+p.text{
+padding:0.25em;
+margin:0;
+}
+.note{
+font-style:italic;
+}
 
 .mainMenu{
  width: 100%;
@@ -45,10 +72,25 @@ font-weight:bold;
  height: 77px;
  margin:0 0 10px 0;
 }
+.mainMenu h1{
+ color:#fff;
+ margin:10px 0 0 50px;
+}
+
+.mainMenu #userStatus{
+float:right;
+padding-right:30px;
+margin:0;
+color:#fff;
+}
+.mainMenu #userStatus a{
+color:#fff;
+}
 
 .mainMenu ul{
+ clear:both;
  margin: 0;
- padding: 0;
+ padding: 10px 0 0 0;
  padding-left: 50px; /*offset of tabs relative to browser left edge*/
  padding-right: 30px; /*offset of tabs relative to browser left edge*/
  font-family: Lucida Grande, Verdana, Sans-serif;
@@ -74,7 +116,7 @@ font-weight:bold;
 .mainMenu li a{
  display: block;
  text-decoration: none;
- margin: 50px 0 0 0;
+ margin: 0 0 0 0;
  padding:10px 10px 7px 10px;  /*padding inside each tab*/
  color: #CDD5F4;
  background: #2F428C; /*background of tabs (default state)*/
@@ -192,6 +234,9 @@ p.success {
  font-size:1.3em;
  color:blue; 
 }
+.actions{
+float:right;
+}
 table{
 width:100%;
 border-collapse:collapse;
@@ -202,18 +247,20 @@ background:#eee;
 }
 table th{
 padding:0.25em;
-background:#eee;
+background:#ccc;
 font-weight:bold;
-border-top:1px solid #f3f3f3;
-border-left:1px solid #f3f3f3;
-border-right:1px solid #ddd;
-border-bottom:1px solid #ddd;
+color:#000;
+border-top:1px solid #eee;
+border-left:1px solid #eee;
+border-right:1px solid #aaa;
+border-bottom:1px solid #aaa;
 }
 
 table td{
 padding:0.25em;
 border-left:1px solid #f3f3f3;
 border-bottom:1px solid #ddd;
+vertical-align:middle;
 }
 
 #dashboardLeft{
@@ -250,11 +297,29 @@ padding-bottom:2em;
 }
 .affiliateCode{
 }
-.codeName{
+.codeName, .green{
 color:green;
 font-weight:bold;
 }
 
 .affiliateCodes input.text{
 width:50px;
+}
+
+.imageText{
+position:relative;
+top:-5px;
+}
+
+#errorExplanation{
+margin-bottom:2em;
+}
+#errorExplanation h2{
+color:red;
+}
+#errorExplanation p{
+font-weight:bold;
+}
+#errorExplanation ul li{
+padding:0.25em 0;
 }

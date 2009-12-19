@@ -1,16 +1,45 @@
-<h2>New Affiliate</h2>
-<p class="actions"><%= link_to "Back to Affiliates", admin_affiliates_path %></p>
+<p class="actions"><%= link_to "Back to Affilates", admin_affiliates_path %></p>
+<h2>New Affilate</h2>
 
-<% form_tag admin_affiliates_path do %>
+<%= error_messages_for :affiliate %>
 
-	<p><%= label_tag "Username:" %><br />
-	<%= text_field_tag "login" %></p>
+<% form_for [:admin, @affiliate] do |form| %>
 
-	<p><%= label_tag "Email Address:" %><br />
-	<%= text_field_tag "email" %></p>
+	<div class="input">
+		<%= label :affiliate, :name %>
+		<%= form.text_field "name", :class => "text" %>
+	</div>
 
-	<p><%= label_tag "Roles:" %><br />
-	<%= text_field_tag "roles" %></p>
+	<div class="input">
+		<%= label :affiliate, :login, "Username" %>
+		<%= form.text_field "login", :class => "text" %>
+	</div>
+
+	<div class="input">
+		<%= label :affiliate, :email, "Email address" %>
+		<%= form.text_field "email", :class => "text" %>
+	</div>
+
+	<div class="input">
+		<%= label :affiliate, :password %>
+		<%= form.password_field "password", :class => "text" %>
+	</div>
+
+	<div class="input">
+		<%= label :affiliate, :password_confirmation, "Confirm Password" %>
+		<%= form.password_field "password_confirmation", :class => "text" %>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Send Activation?", nil, :class => "inline" %>
+		<%= check_box_tag "send_activation", 1, false %>
+		<p>If this is checked, the affiliate will have to confirm their account before being able to use it.</p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Approved:", nil, :class => "inline" %>
+		<%= check_box_tag "approved", 1, true %>
+	</div>
 
 	<p class="submit"><%= submit_tag "Create" %></p>
 <% end %>
