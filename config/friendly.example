@@ -1,0 +1,20 @@
+development:
+  :adapter: "mysql"
+  :host: "localhost"
+  :user: "root"
+  :password: ""
+  :database: "affiliation_development"
+
+test:
+  :adapter: "mysql"
+  :host: "localhost"
+  :user: "root"
+  :password: ""
+  :database: "affiliation_test"
+
+production:
+  :adapter: "mysql"
+  :host: "localhost"
+  :user: "root"
+  :password: ""
+  :database: "affiliation_test"
