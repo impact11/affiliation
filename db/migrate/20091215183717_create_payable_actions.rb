@@ -9,10 +9,6 @@ class CreatePayableActions < ActiveRecord::Migration
 			t.string  :order_number
 			t.float   :order_amount, :scale => 10, :precision => 2
 			t.float   :payout, :scale => 10, :precision => 2
-			t.datetime :approved_at
-			t.integer :approved_by
-			t.datetime :paid_at
-			t.datetime :paid_by
 			
       t.timestamps
     end

@@ -15,9 +15,11 @@ class TrackController < ApplicationController
 			# If trackback exists and matches code
 			if @trackback && @trackback.trackback_code_name == params[:code]
 				if params[:order_number] && params[:order_amount]
-					create_page_view
-					create_payable_action(Order)
-					render_success(:trackback => { :action => "ORDER" })
+					if create_page_view && create_payable_action(Order)
+						render_success(:trackback => { :action => "ORDER" })
+					else
+						render_error("Unable to create order")
+					end
 				else
 					create_page_view
 					render_success(:trackback => { :action => "UPDATE" })

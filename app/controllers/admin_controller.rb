@@ -7,11 +7,13 @@ class AdminController < ApplicationController
 		end_date = DateTime.now
 		start_date = end_date - 30.days
 
-		@affiliates_pending = Affiliate.count( :conditions => ["approved_at IS NULL"])
-		@payouts_pending = PayableAction.count( :conditions => ["approved_at IS NULL"])
+		@affiliates_pending 		= Affiliate.count( :conditions => ["approved_at IS NULL"])
+		@commissions_pending 		= PayableAction.pending
+		@commissions_approved 	= PayableAction.approved
 
-		@traffic_stats = Stats::Traffic.new( :start_date => start_date, :end_date => end_date )
-		@search_stats = Stats::Search.new( :start_date => start_date, :end_date => end_date )
+		@traffic_stats 		= Stats::Traffic.new( :start_date => start_date, :end_date => end_date )
+		@search_stats 		= Stats::Search.new( :start_date => start_date, :end_date => end_date )
+		@affiliate_stats 	= Stats::Affiliates.new( :start_date => start_date, :end_date => end_date )
 
 	end
 end

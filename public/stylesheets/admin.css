@@ -23,6 +23,7 @@ h2{
 font-size:1.2em;
 }
 h3{
+color:#000;
 width:350px;
 font-size:1.1em;
 padding:0.5em 0;
@@ -39,6 +40,9 @@ padding:1em;
 background:#eee;
 border:1px dashed #ccc;
 font-family:monospace;
+}
+.clear{
+clear:both;
 }
 label{
 font-weight:bold;
@@ -322,4 +326,20 @@ font-weight:bold;
 }
 #errorExplanation ul li{
 padding:0.25em 0;
+}
+
+#payableActionsTable{
+margin-bottom:1em;
+padding-bottom:1em;
+border-bottom:2px solid #ccc;
+}
+
+#showPayableAction{
+width:35%;
+float:left;
+}
+#payableActionHistory{
+width:60%;
+padding-left:2.5%;
+float:left;
 }

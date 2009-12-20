@@ -17,7 +17,7 @@
 	<tr class="<%= tr_class %>">
 
 			<td><%= affiliate.id %></td>
-			<td><strong><%= affiliate.login %></strong></td>
+			<td><%= render :partial => "affiliate_tag", :locals => { :affiliate => affiliate } %></td>
 			<td><%= affiliate.email %></td>
 			<td>
 				<% if affiliate.active? 	%> 

@@ -6,6 +6,8 @@ class Admin::PayableActionsController < ApplicationController
   # GET /payable_actions
   # GET /payable_actions.xml
   def index
+		store_location
+
     @pending_commissions 	= PayableAction.pending
 		@approved_commissions = PayableAction.approved
 		@paid_commissions 		= PayableAction.paid
@@ -51,7 +53,7 @@ class Admin::PayableActionsController < ApplicationController
     respond_to do |format|
       if @payable_action.save
         flash[:notice] = 'PayableAction was successfully created.'
-        format.html { redirect_to(@payable_action) }
+        format.html { redirect_to([:admin, @payable_action]) }
         format.xml  { render :xml => @payable_action, :status => :created, :location => @payable_action }
       else
         format.html { render :action => "new" }
@@ -68,7 +70,7 @@ class Admin::PayableActionsController < ApplicationController
     respond_to do |format|
       if @payable_action.update_attributes(params[:payable_action])
         flash[:notice] = 'PayableAction was successfully updated.'
-        format.html { redirect_to(@payable_action) }
+        format.html { redirect_to([:admin, @payable_action]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -88,4 +90,22 @@ class Admin::PayableActionsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def approve
+		@payable_action = PayableAction.find(params[:id])
+		@payable_action.approve!(@current_user)
+		redirect_back_or_default([:admin, @payable_action])		
+	end
+
+	def pay
+		@payable_action = PayableAction.find(params[:id])
+		@payable_action.pay!(@current_user)
+		redirect_back_or_default([:admin, @payable_action])		
+	end
+
+	def deny
+		@payable_action = PayableAction.find(params[:id])
+		@payable_action.deny!(@current_user)
+		redirect_back_or_default([:admin, @payable_action])		
+	end
 end

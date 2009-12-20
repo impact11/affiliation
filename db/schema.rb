@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091216223536) do
+ActiveRecord::Schema.define(:version => 20091219234456) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -43,100 +43,13 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
     t.datetime "scheduled_at"
   end
 
-  create_table "index_page_views_on_created_at", :id => false, :force => true do |t|
-    t.binary   "id",         :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.datetime "created_at",                                                                                               :null => false
-  end
-
-  add_index "index_page_views_on_created_at", ["id"], :name => "id", :unique => true
-
-  create_table "index_page_views_on_default", :id => false, :force => true do |t|
-    t.binary "id",      :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "default",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_page_views_on_default", ["id"], :name => "id", :unique => true
-
-  create_table "index_page_views_on_extra", :id => false, :force => true do |t|
-    t.binary "id",    :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "extra",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_page_views_on_extra", ["id"], :name => "id", :unique => true
-
-  create_table "index_page_views_on_host", :id => false, :force => true do |t|
-    t.binary "id",   :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "host",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_page_views_on_host", ["id"], :name => "id", :unique => true
-
-  create_table "index_page_views_on_trackback_id", :id => false, :force => true do |t|
-    t.binary "id",           :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "trackback_id",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_page_views_on_trackback_id", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackback_codes_on_name", :id => false, :force => true do |t|
-    t.binary "id",   :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "name",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_trackback_codes_on_name", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackback_codes_on_percentage", :id => false, :force => true do |t|
-    t.binary "id",         :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.float  "percentage",               :default => 0.0,                                                                :null => false
-  end
-
-  add_index "index_trackback_codes_on_percentage", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackback_codes_on_user_id", :id => false, :force => true do |t|
-    t.binary  "id",      :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.integer "user_id",               :default => 0,                                                                  :null => false
-  end
-
-  add_index "index_trackback_codes_on_user_id", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackbacks_on_created_at", :id => false, :force => true do |t|
-    t.binary   "id",         :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.datetime "created_at",                                                                                               :null => false
-  end
-
-  add_index "index_trackbacks_on_created_at", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackbacks_on_default", :id => false, :force => true do |t|
-    t.binary "id",      :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "default",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_trackbacks_on_default", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackbacks_on_host", :id => false, :force => true do |t|
-    t.binary "id",   :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "host",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_trackbacks_on_host", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackbacks_on_session_id", :id => false, :force => true do |t|
-    t.binary "id",         :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "session_id",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_trackbacks_on_session_id", ["id"], :name => "id", :unique => true
-
-  create_table "index_trackbacks_on_trackback_code_name", :id => false, :force => true do |t|
-    t.binary "id",                  :limit => 16, :default => "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000", :null => false
-    t.string "trackback_code_name",               :default => "",                                                                 :null => false
-  end
-
-  add_index "index_trackbacks_on_trackback_code_name", ["id"], :name => "id", :unique => true
-
-  create_table "page_views", :primary_key => "added_id", :force => true do |t|
-    t.binary   "id",         :limit => 16
-    t.text     "attributes"
+  create_table "payable_action_histories", :force => true do |t|
+    t.string   "parent_class"
+    t.integer  "parent_id"
+    t.integer  "user_id"
+    t.string   "state_in"
+    t.string   "state_out"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -150,10 +63,6 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
     t.string   "order_number"
     t.float    "order_amount"
     t.float    "payout"
-    t.datetime "approved_at"
-    t.integer  "approved_by"
-    t.datetime "paid_at"
-    t.datetime "paid_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -167,20 +76,6 @@ ActiveRecord::Schema.define(:version => 20091216223536) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer  "role_id"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trackback_codes", :primary_key => "added_id", :force => true do |t|
-    t.binary   "id",         :limit => 16
-    t.text     "attributes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "trackbacks", :primary_key => "added_id", :force => true do |t|
-    t.binary   "id",         :limit => 16
-    t.text     "attributes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
