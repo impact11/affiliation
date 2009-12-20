@@ -1,0 +1,21 @@
+<p class="actions"><%= link_to "Back to Affiliates", admin_affiliates_path %></p>
+<h2>Edit Trackback Code</h2>
+
+<% form_for [:admin, @trackback_code] do |f| %>
+	<div class="input">
+		<%= label :trackback_code, :affiliate %>
+		<p class="green"><%= @trackback_code.affiliate.login %></p>
+	</div>
+
+	<div class="input">
+		<%= label :trackback_code, :name %>
+		<%= f.text_field :name, :class => "text" %>
+	</div>
+
+	<div class="input">
+		<%= label :trackback_code, :percentage %>
+		<%= f.text_field :percentage, :class => "text" %>
+	</div>
+
+	<p class="submit"><%= submit_tag "Update" %></p>
+<% end %>

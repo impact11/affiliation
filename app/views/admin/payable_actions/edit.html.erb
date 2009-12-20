@@ -1,0 +1,56 @@
+<h2>Showing Commission</h2>
+<div id="showPayableAction">
+	<h1 class="green"><%= @payable_action.affiliate.login %></h1>
+
+	<div class="input">
+		<%= label_tag "Type"%>
+		<p class="text"><%= @payable_action.class.name %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Status" %>
+		<p class="text"><%= @payable_action.state %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Trackback Code" %>
+		<p class="text"><%= @payable_action.trackback_code_name %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Trackback ID" %>
+		<p class="text"><%= @payable_action.trackback_id %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Order Number" %>
+		<p class="text"><%= @payable_action.order_number %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Order Amount" %>
+		<p class="text">$<%= @payable_action.order_amount %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Commission Percentage" %>
+		<p class="text"><%= @payable_action.trackback_code.percentage %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Commission" %>
+		<p class="text">$<%= @payable_action.payout %></p>
+	</div>
+
+	<div class="input">
+		<%= label_tag "Date of Purchase" %>
+		<p class="text"><%= @payable_action.created_at %> (<%= distance_of_time_in_words(@payable_action.created_at.to_i, Time.now.to_i) %> ago)</p>
+	</div>
+</div>
+
+<div id="payableActionHistory">
+	<h3>History</h3>
+	<pre><% @payable_action.histories.each do |history| %><%= "#{history.created_at} (#{distance_of_time_in_words(history.created_at.to_i, Time.now.to_i)} ago):\t#{history.notes}" %><% end %></pre>
+</div>
+
+<div class="clear"></div>

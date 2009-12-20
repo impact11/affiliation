@@ -1,0 +1,24 @@
+<h2>Commissions</h2>
+
+<%= form_tag "/admin/payable_actions/change_state" %>
+	<h3>Pending Commissions</h3>
+	<p class="note">Once approved, pending commissions will be marked for payment.</p>
+	<% if @pending_commissions.size > 0 %>
+		<%= render :partial => "index_table", :locals => { :payable_actions => @pending_commissions } %>
+		<p class="submit"><%= label_tag "With selected:" %> <%= submit_tag "Approve" %></p>
+	<% else %>
+		<p><strong>There are no pending commissions.</strong></p>
+	<% end %>
+
+	<br/>
+
+	<h3>Approved Commissions</h3>
+	<p class="note">Approved commissions have yet to be paid to affiliates.</p>
+	<% if @approved_commissions.size > 0 %>
+		<%= render :partial => "index_table", :locals => { :payable_actions => @approved_commissions } %>
+		<p class="submit"><%= label_tag "With selected:" %> <%= submit_tag "Pay" %></p>
+	<% else %>
+		<p><strong>There are no approved commissions.</strong></p>
+	<% end %>
+
+</form>

@@ -1,0 +1,47 @@
+<table id="payableActionsTable">
+	<tr>
+		<th>&nbsp;</th>
+		<th>Id</th>
+		<th>Type</th>
+		<th>Affiliate</th>
+		<th>Purchase Date</th>
+		<th>Purchase Amount</th>
+		<th>Commission Percentage</th>
+		<th>Commission Amount</th>
+		<th>&nbsp;</th>
+		<th>&nbsp;</th>
+	</tr>
+	<% payable_actions.each do |p| %>
+	<% tr_class = cycle('', 'alt') %>
+	<tr class="<%= tr_class %>">
+			<td><%= check_box_tag "to_edit[#{ p.id }]", 1, false %></td>
+			<td><%= p.id %></td>
+			<td><%= p.class.name %></td>
+			<td><span class="green"><%= p.affiliate.login %></span></td>
+			<td><%= p.created_at %> <strong>(<%= distance_of_time_in_words(p.created_at.to_i, Time.now.to_i) %> ago)</strong></td>
+			<td>$<%= p.order_amount %></td>
+			<td><%= p.trackback_code.percentage %></td>
+			<td>$<%= p.payout %></td>
+			<td style="padding:0.5em">
+				<%= link_to(image_tag("icons/tick.png", :alt => "Approve", :style => "float:left"), "/admin/payable_actions/approve/#{ p.id }") if p.pending? %>
+				<%= link_to(image_tag("icons/money_dollar.png", :alt => "Pay Affiliate", :style => "float:left"), "/admin/payable_actions/pay/#{ p.id }") if p.approved? %>
+
+				<%= link_to(image_tag("icons/cross.png", :alt => "Deny", :style => "float:right"), "/admin/payable_actions/deny/#{ p.id }") if p.pending? || p.approved? %>
+				<div class="clear"></div>
+			</td>
+			<td style="text-align:center;">
+				<%= link_to 'Details', '#', :onclick => "javascript: document.getElementById('payable-action-detail-#{p.id}').style.display = ''" %>
+				<%= link_to 'Show/Edit', edit_admin_payable_action_path(p) %>
+			</td>
+	</tr>
+	<tr class="<%= tr_class %>">
+		<td colspan="10" style="padding:0 0.25em;border-top:0;border-bottom:0">
+			<div id="payable-action-detail-<%= p.id %>" style="display:none">
+				<p><%= label_tag "Trackback Code:" %> <%= p.trackback_code_name %></p>
+				<p><%= label_tag "Ordered From:" %> <%= p.trackback.host %></p>
+				<p><%= label_tag "Order Number:" %> <%= p.order_number %></p>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+</table>

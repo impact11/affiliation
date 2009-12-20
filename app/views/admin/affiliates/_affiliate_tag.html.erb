@@ -1,0 +1,15 @@
+<strong><%= affiliate.login %></strong> 
+<%
+	icon = case affiliate.member_status
+		when 1 then "bullet_black"
+		when 2 then "bullet_green"
+		when 3 then "bullet_star"
+		when 4 then "medal_bronze_2"
+		when 5 then "medal_silver_2"
+		when 6 then "medal_gold_3"
+		when 7 then "award_star_bronze_1"
+		else ""
+	end
+%>
+<%= image_tag("icons/#{icon}.png", :style => "vertical-align:middle") %>
+(<%= affiliate.orders.size %> orders, <%= affiliate.trackbacks.size %> trackbacks)
