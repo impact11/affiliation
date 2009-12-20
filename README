@@ -30,3 +30,16 @@ After affiliates sign up or are created in the admin, they can be assigned codes
 
 An example usage for affiliate 'marty123' with a trackback code 'mar' would be as follows:
  
+1. marty123 links to your store with his affiliate code
+	http://widgetsrus.co.uk/index.html?affiliate=mar
+
+2. Your site drops in a tag on the linked page (or use curl, or any method to perform an HTTP GET) passing the trackback data to the affiliate application
+	(on http://widgetsrus.co.uk/index.html) <img src="http://affiliates.widgetsrus.co.uk/track/mar" height="1" width="1" alt=""/>
+
+3. Place a similar tag or otherwise GET the affiliate application through the user's visit on any pages you want trackbacks recorded on. Any additional metrics you want recorded can be included in JSON format as such:
+	http://affiliates.widgetsrus.co.uk/track/mar/{'search_terms':'purple widget', 'other_key':'other_value'}
+
+4. In the event the user purchases something in your store, the tag on the order completion page is a bit different:
+	http://affiliates.widgetsrus.co.uk/track/mar/{order_number}/{order_amount}
+	-- e.g. --
+	http://affiliates.widgetsrus.co.uk/track/mar/234494/23.45

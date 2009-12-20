@@ -73,7 +73,7 @@ font-style:italic;
  width: 100%;
  overflow: hidden;
  background-color: #24336A;
- height: 77px;
+ height: 87px;
  margin:0 0 10px 0;
 }
 .mainMenu h1{
@@ -94,7 +94,7 @@ color:#fff;
 .mainMenu ul{
  clear:both;
  margin: 0;
- padding: 10px 0 0 0;
+ padding: 20px 0 0 0;
  padding-left: 50px; /*offset of tabs relative to browser left edge*/
  padding-right: 30px; /*offset of tabs relative to browser left edge*/
  font-family: Lucida Grande, Verdana, Sans-serif;

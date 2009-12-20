@@ -13,15 +13,23 @@
 	<h1>Affililation - Administration</h1>
 	<p id="userStatus"><%= @current_user.login %> | <%= link_to "logout", "/logout" %></p>
 	<ul> 
-		<li><%= link_to "Dashboard", "/admin", :class => "mainMenuLeft" %></li>
-		<li><%= link_to "Users", admin_users_path, :class => "mainMenuRight" %></li>
+		<li class="<%= controller.controller_name == "admin" && controller.action_name == "index" ? "selected" : "" %>">
+			<%= link_to "Dashboard", "/admin", :class => "mainMenuLeft" %>
+		</li>
+		<li class="<%= controller.controller_name == "users" ? "selected" : "" %>">
+			<%= link_to "Users", admin_users_path, :class => "mainMenuRight" %>
+		</li>
 	</ul> 
 </div>
 
 <div class="subMenu">
 	<ul>
-		<li><%= link_to "Affiliates", admin_affiliates_path, :class => "subMenuLeft" %></li>
-		<li><%= link_to "Commissions", admin_payable_actions_path, :class => "subMenuLeft" %></li>
+		<li class="<%= controller.controller_name == "affiliates" ? "selected" : "" %>">
+			<%= link_to "Affiliates", admin_affiliates_path, :class => "subMenuLeft" %>
+		</li>
+		<li class="<%= controller.controller_name == "payable_actions" ? "selected" : "" %>">
+			<%= link_to "Commissions", admin_payable_actions_path, :class => "subMenuLeft" %>
+		</li>
 	</ul>
 </div>
 
