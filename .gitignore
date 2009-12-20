@@ -13,3 +13,4 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 Capfile
+config/initializers/site_keys.rb
