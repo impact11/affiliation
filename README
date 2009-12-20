@@ -43,3 +43,8 @@ An example usage for affiliate 'marty123' with a trackback code 'mar' would be a
 	http://affiliates.widgetsrus.co.uk/track/mar/{order_number}/{order_amount}
 	-- e.g. --
 	http://affiliates.widgetsrus.co.uk/track/mar/234494/23.45
+
+Available tracking routes:
+track/{trackback_code}/{order_number}/{order_amount} //-> +Trackback, +PageView, +PayableAction
+track/{trackback_code}/{extra_data} //-> +Trackback, +PageView
+track/{trackback_code} //-> +Trackback, +PageView
