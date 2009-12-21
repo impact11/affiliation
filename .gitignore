@@ -1,4 +1,6 @@
 config/database.yml
+config/friendly.yml
+config/initializers/site_keys.rb
 *~
 *.cache
 *.log
@@ -13,4 +15,3 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 Capfile
-config/initializers/site_keys.rb

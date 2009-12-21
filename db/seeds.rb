@@ -19,8 +19,10 @@ admin_role = Role.create( :title => "admin" )
 
 # Users
 admin = User.new( :login => "admin", :password => "testpass", :password_confirmation => "testpass", :email => "administrator@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
-admin.roles << Role.first( :conditions => ["title = ?", "admin"]) 
+admin.roles << admin_role
 admin.save
+
+admin.activate!
 
 # Affiliates
 Affiliate.create( :login => "approved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
@@ -28,4 +30,4 @@ Affiliate.create( :login => "unapproved_affiliate", :password => "testpass", :pa
 Affiliate.create( :login => "unactivated_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate3@example.com", :approved_at => DateTime.now )
 
 # Affiliate codes
-#TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)
+TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)

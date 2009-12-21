@@ -11,3 +11,10 @@ test:
   :user: "root"
   :password: "lu253i"
   :database: "affiliation_test"
+
+production:
+  :adapter: "mysql"
+  :host: "localhost"
+  :user: "root"
+  :password: "lu253i"
+  :database: "affiliation_test"
