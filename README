@@ -1,3 +1,14 @@
+Required Gems
+=============
+Rspec
+	gem install rspec
+
+Packet
+	gem install packet
+
+Friendly
+	gem install friendly
+
 Setup
 =====
 
