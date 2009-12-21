@@ -25,9 +25,9 @@ admin.save
 admin.activate!
 
 # Affiliates
-Affiliate.create( :login => "approved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
-Affiliate.create( :login => "unapproved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate2@example.com" )
-Affiliate.create( :login => "unactivated_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate3@example.com", :approved_at => DateTime.now )
+affiliate1 = Affiliate.create( :login => "approved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate1@example.com", :approved_at => DateTime.now, :activated_at => DateTime.now )
+affiliate2 = Affiliate.create( :login => "unapproved_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate2@example.com" )
+affiliate3 = Affiliate.create( :login => "unactivated_affiliate", :password => "testpass", :password_confirmation => "testpass", :email => "affiliate3@example.com", :approved_at => DateTime.now )
 
 # Affiliate codes
-TrackbackCode.create( :user_id => affiliate.id, :name => "affcode1", :percentage => 10.0)
+TrackbackCode.create( :user_id => affiliate1.id, :name => "affcode1", :percentage => 10.0)

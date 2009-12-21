@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20091219234456) do
     t.datetime "scheduled_at"
   end
 
-  create_table "payable_action_histories", :force => true do |t|
+  create_table "histories", :force => true do |t|
     t.string   "parent_class"
     t.integer  "parent_id"
     t.integer  "user_id"

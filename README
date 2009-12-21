@@ -12,14 +12,13 @@ Friendly
 Setup
 =====
 
-1. Copy the config/database.example and modify
+1. Copy the config/database.example and config/friendly.example and modify
+ to suit your needs
 
 2. Generate the authentication key
 	rake auth:gen:site_key
 
-3.a Create the Friendly tables from ./script/console
-	Friendly.create_tables!
-
--- or --
-
-3.b Run db/reset.sh to create databases/tables and load seed data
+3. Create databases, Friendly tables, and seed database
+	rake db:create:all
+	rake db:migrate RAILS_ENV=production
+	rake db:seed RAILS_ENV=production
