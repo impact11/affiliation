@@ -22,3 +22,11 @@ Setup
 	rake db:create:all
 	rake db:migrate RAILS_ENV=production
 	rake db:seed RAILS_ENV=production
+
+Usage
+=====
+
+After affiliates sign up or are created in the admin, they can be assigned codes to link to your site's pages. This will require some modification of your storefront's code, but only enought to track the current affiliate code through the session.
+
+An example usage for affiliate 'marty123' with a trackback code 'mar' would be as follows:
+ 
